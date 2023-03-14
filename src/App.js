@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import ContactoList from './componentes/container/contacto.list';
+import ContactoComponent from './componentes/pure/contacto';
 
 function App() {
+  const defaultContacto = {nombre: 'Jeysson', apellido: 'Seclen Meoño', email:'jseclenmeono@gmail.com', conectado: true};
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <ContactoList></ContactoList>
+        <ContactoComponent contacto={defaultContacto}></ContactoComponent>
       </header>
     </div>
   );

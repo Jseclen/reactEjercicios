@@ -1,17 +1,20 @@
-import React from 'react';
-import { Contacto } from '../../models/contacto.class';
-import ContactoComponent from '../pure/contacto';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const ContactoList = () => {
-    const defaultContacto = new Contacto('Jeysson', 'Seclen Meoño', 'jseclenmeono@gmail.com', false)
+
+const ContactoList = (estado) => {
+    const [conectado, setconectado] = useState(estado);
     return (
         <div>
-            <div>
-                Contacto:
-            </div>
-            <ContactoComponent contacto={defaultContacto}></ContactoComponent>
+            <button onClick={() => setconectado(!conectado)}> Estado: {conectado ? ' Contacto En Línea' : 'Contacto No Disponible'}</button>
         </div>
     );
-}
+};
+
+
+ContactoList.propTypes = {
+    estado: PropTypes.bool,
+};
+
 
 export default ContactoList;
